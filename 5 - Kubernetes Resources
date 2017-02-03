@@ -1,0 +1,8 @@
+- Pods
+- Replication Controllers 
+- Replica Sets
+- Deployments
+- Services 
+- Jobs
+- ConfigMaps
+- Secrets
