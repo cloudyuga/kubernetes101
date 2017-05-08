@@ -6,7 +6,6 @@ $ kubectl run my-nginx --image=nginx:alpine --replicas=2 --port=80
 NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 my-nginx   2         2         2            2           31s
 
-kubernetes101 git/master*
 ❯ kubectl get replicasets
 NAME                DESIRED   CURRENT   READY     AGE
 my-nginx-64405743   2         2         2         51s
@@ -27,5 +26,14 @@ NAME                      READY     STATUS    RESTARTS   AGE       RUN        RU
 my-nginx-64405743-hffj1   1/1       Running   0          4m        my-nginx   <none>
 my-nginx-64405743-sf1mb   1/1       Running   0          4m        my-nginx   <none>
 
+❯ kubectl get pods  --selector="run==my-nginx"
+NAME                      READY     STATUS    RESTARTS   AGE
+my-nginx-64405743-hffj1   1/1       Running   0          2h
+my-nginx-64405743-sf1mb   1/1       Running   0          2h
 
+❯ kubectl edit my-nginx-64405743-hffj1
+the server doesn't have a resource type "my-nginx-64405743-hffj1"
 
+❯ kubectl get pods  -l "env==dev"
+NAME                      READY     STATUS    RESTARTS   AGE
+my-nginx-64405743-hffj1   1/1       Running   0          2h
