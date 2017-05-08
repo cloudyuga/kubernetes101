@@ -2,7 +2,6 @@
 - Replication Controllers 
 - Replica Sets
 - Deployments
+- Selectors
+- Labels
 - Services 
-- Jobs
-- ConfigMaps
-- Secrets

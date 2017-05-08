@@ -32,9 +32,37 @@ $ gcloud components install kubectl
 
 - Run following command to test your connection with the `container cluster`
 ```
-kubectl get nodes
-NAME                                      STATUS    AGE       VERSION
-gke-rootconf-default-pool-f1903f03-40c6   Ready     14m       v1.5.7
-gke-rootconf-default-pool-f1903f03-c8j0   Ready     14m       v1.5.7
-gke-rootconf-default-pool-f1903f03-nlgs   Ready     14m       v1.5.7
+$ kubectl cluster-info
+Kubernetes master is running at https://104.198.207.139
+GLBCDefaultBackend is running at https://104.198.207.139/api/v1/proxy/namespaces/kube-system/services/default-http-backend
+Heapster is running at https://104.198.207.139/api/v1/proxy/namespaces/kube-system/services/heapster
+KubeDNS is running at https://104.198.207.139/api/v1/proxy/namespaces/kube-system/services/kube-dns
+kubernetes-dashboard is running at https://104.198.207.139/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard
 ```
+
+- Checkout the `~/.kube/config` file
+
+- Create a namespace 
+```
+$ kubectl create namespace <ANYNAME>
+```
+
+- Get the current `context` 
+```
+$ kubectl config view | awk '/current-context/ {print $2}'
+$ export CONTEXT=`kubectl config view | awk '/current-context/ {print $2}'` 
+```
+
+- Update the default namespace for the current context
+```
+$ kubectl config set-context $CONTEXT --namespace=<ANYNAME>
+```
+
+where `ANYNAME` is the name of the `namespace`, you created earlier. 
+
+- Access the dashboard 
+```
+$ kubectl proxy
+Starting to serve on 127.0.0.1:8001
+```
+ Open the browser with http://127.0.0.1:8001 URL. 
