@@ -118,3 +118,6 @@ Events:		<none>
 ```
 
 - Access the application and we should see the entries we did ealrier. 
+
+- After destroying the application, you can remove the disk from GCE, using following command :-
+❯ gcloud compute disks delete mongodb-data
