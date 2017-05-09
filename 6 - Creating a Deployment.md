@@ -1,5 +1,5 @@
 
-
+```
 $ kubectl run my-nginx --image=nginx:alpine --replicas=2 --port=80
 
 ❯ kubectl get deployments
@@ -37,3 +37,27 @@ the server doesn't have a resource type "my-nginx-64405743-hffj1"
 ❯ kubectl get pods  -l "env==dev"
 NAME                      READY     STATUS    RESTARTS   AGE
 my-nginx-64405743-hffj1   1/1       Running   0          2h
+```
+
+
+- Equivalent Deployment configuration file. 
+
+```
+❯ cat my-nginx.yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+```
