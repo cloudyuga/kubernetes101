@@ -95,7 +95,7 @@ metadata:
   labels:
     run: my-nginx
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 80
     protocol: TCP
