@@ -2,9 +2,14 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: myclaim-1
+  annotations:
+    volume.beta.kubernetes.io/storage-class:
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 0.5Gi
+  selector:
+    matchLabels:
+     type: local
