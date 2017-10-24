@@ -7,9 +7,9 @@ $ git clone https://github.com/cloudyuga/rsvpapp.git
 $ git checkout kubernetes
 $ cd kubernetes
 ```
-- Explore the deployment and service configuration files for back end frontend. 
+- Explore the deployment and service configuration files for back end frontend.
 
-- Deploy the backend 
+- Deploy the backend
 ```
 $ kubectl create -f rsvp-db.yaml
 $ kubectl create -f rsvp-db-service.yaml
@@ -35,7 +35,7 @@ mongodb   10.87.249.186   <none>        27017/TCP      21m
 rsvp      10.87.254.54    <nodes>       80:32505/TCP   17m
 ```
 
- - Open the `NodePort` and access the application from any of node's IP address. 
+ - Open the `NodePort` and access the application from any of node's IP address.
 ```
 ❯ kubectl get nodes -o yaml | grep -B 1 External
     - address: 104.197.224.162

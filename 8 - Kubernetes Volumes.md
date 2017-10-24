@@ -20,18 +20,16 @@ Check it on Google cloud interface.
 $ cd volumes
 ```
 
-- Create a `PersistentVolume` using GCE disk we created earlier. Make sure the name of disk (mongodb-data) matches with `pdName` inside `volume.yaml`. 
+- Create a `PersistentVolume` using GCE disk we created earlier. Make sure the name of disk (mongodb-data) matches with `pdName` inside `volume.yaml`.
 
 ```
 ❯ kubectl create -f volume.yaml
 persistentvolume "mongodb-pv" created
 
-rsvpapp/kubernetes/volumes git/kubernetes*
 ❯ kubectl get PersistentVolume
 NAME         CAPACITY   ACCESSMODES   RECLAIMPOLICY   STATUS      CLAIM     STORAGECLASS   REASON    AGE
 mongodb-pv   10Gi       RWO           Retain          Available                                      13s
 
-rsvpapp/kubernetes/volumes git/kubernetes*
 ❯ kubectl describe PersistentVolume mongodb-pv
 Name:		mongodb-pv
 Labels:		<none>
@@ -120,4 +118,6 @@ Events:		<none>
 - Access the application and we should see the entries we did ealrier. 
 
 - After destroying the application, you can remove the disk from GCE, using following command :-
+```
 ❯ gcloud compute disks delete mongodb-data
+```

@@ -10,7 +10,6 @@ my-nginx   2         2         2            2           31s
 NAME                DESIRED   CURRENT   READY     AGE
 my-nginx-64405743   2         2         2         51s
 
-kubernetes101 git/master*
 ❯ kubectl get pods
 NAME                      READY     STATUS    RESTARTS   AGE
 my-nginx-64405743-hffj1   1/1       Running   0          57s
@@ -40,7 +39,7 @@ my-nginx-64405743-hffj1   1/1       Running   0          2h
 ```
 
 
-- Equivalent Deployment configuration file. 
+- Equivalent Deployment configuration file.
 
 ```
 ❯ cat my-nginx.yaml
