@@ -6,14 +6,13 @@
 ❯ tr -Ccsu '\n' <password.txt >.strippedpassword.txt && mv .strippedpassword.txt password.txt
 ```
 
-- Create a secret 
+- Create a secret
 ```
 ❯ kubectl create secret generic my-password --from-file=password.txt
 ❯ kubectl get secret my-password
 NAME          TYPE      DATA      AGE
 my-password   Opaque    1         12s
 
-kubernetes101/secret/mysql-wordpress git/master*
 ❯ kubectl describe secret my-password
 Name:		my-password
 Namespace:	default
@@ -27,7 +26,7 @@ Data
 password.txt:	8 bytes
 ```
 
-- Create a pod and access the secret from it. 
+- Create a pod and access the secret from it.
 ```
 ❯ cat pod.yam
 apiVersion: v1
@@ -53,7 +52,7 @@ spec:
 - Access the pod and check environment variable.
 
 ```
-kubectl exec -it secret-env-pod sh
+❯ kubectl exec -it secret-env-pod sh
 / # env
 KUBERNETES_PORT=tcp://10.3.240.1:443
 KUBERNETES_SERVICE_PORT=443

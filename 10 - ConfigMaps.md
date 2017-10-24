@@ -1,4 +1,3 @@
-
 - Describe the [RSVP application](https://cloudyuga.gitbooks.io/container-orchestration/content/rsvp.html)
 
 - Clone the `rsvpapp` git repo and checkout `kubernetets` branch
@@ -7,9 +6,9 @@ $ git clone https://github.com/cloudyuga/rsvpapp.git
 $ git checkout kubernetes
 $ cd kubernetes
 ```
-- Explore the deployment and service configuration files for back end frontend. 
+- Explore the deployment and service configuration files for back end frontend.
 
-- Deploy the backend 
+- Deploy the backend
 ```
 $ kubectl create -f rsvp-db.yaml
 $ kubectl create -f rsvp-db-service.yaml
